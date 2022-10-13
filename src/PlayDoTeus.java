@@ -1,19 +1,20 @@
 
 public class PlayDoTeus extends Play {
 
-	private int numberLastMusic;
-	private int numberLastAlbum;
+	private int currentMusic;
+	private int currentAlbum;
 	public PlayDoTeus() {
 		super();
-		this.numberLastMusic = 0;
-		this.numberLastAlbum = 0;
+		this.currentMusic = 0;
+		this.currentAlbum = 0;
 	}
+	
 	
 	@Override
 	public void start() {
 		if(this.listaAlbum.size() > 0) {
 			System.out.println("Tocando a música " + 
-					this.listaAlbum.get(numberLastAlbum).getListaMusica().get(numberLastMusic).getNome());
+					this.listaAlbum.get(currentAlbum).getListaMusica().get(currentMusic).getNome());
 		} else {
 			System.err.println("No music to play!");
 		}
@@ -29,17 +30,17 @@ public class PlayDoTeus extends Play {
 			if(this.listaAlbum.size() > 0) {
 			
 			for(;quantidade > 0;quantidade--) {
-				if(numberLastMusic + 1 >= this.listaAlbum.get(numberLastAlbum).getListaMusica().size()) {
+				if(currentMusic + 1 >= this.listaAlbum.get(currentAlbum).getListaMusica().size()) {
 					
-					if (numberLastAlbum == 0) {
-						numberLastAlbum = this.listaAlbum.size() - 1;
+					if (currentAlbum == 0) {
+						currentAlbum = this.listaAlbum.size() - 1;
 					} else {
-						numberLastAlbum--;
+						currentAlbum--;
 					}
 					
-					numberLastAlbum = 0;;
+					currentAlbum = 0;;
 				} else {
-					numberLastMusic++;
+					currentMusic++;
 				}
 			}
 			
@@ -47,25 +48,6 @@ public class PlayDoTeus extends Play {
 		} else {
 			System.err.println("No music to play!");
 		}
-		
-		
-		
-//		this.numberLastMusic += quantidade;
-//		if(this.listaAlbum.size() > 0) {
-//			while(numberLastMusic  >= this.listaAlbum.get(numberLastAlbum).getListaMusica().size()) {
-//				
-//				numberLastMusic -= this.listaAlbum.get(numberLastAlbum).getListaMusica().size();	
-//				
-//				if(numberLastAlbum + 1 >= this.listaAlbum.size() ) {
-//					numberLastAlbum = 0;
-//				} else {
-//					numberLastAlbum++;
-//				}
-//			}
-//			this.start();
-//		} else {
-//			System.err.println("No music to play!");
-//		}
 	}
 
 	@Override
@@ -74,17 +56,17 @@ public class PlayDoTeus extends Play {
 		if(this.listaAlbum.size() > 0) {
 			
 			for(;quantidade > 0;quantidade--) {
-				if(numberLastMusic - 1 < 0) {
+				if(currentMusic - 1 < 0) {
 					
-					if (numberLastAlbum == 0) {
-						numberLastAlbum = this.listaAlbum.size() - 1;
+					if (currentAlbum == 0) {
+						currentAlbum = this.listaAlbum.size() - 1;
 					} else {
-						numberLastAlbum--;
+						currentAlbum--;
 					}
 					
-					numberLastMusic = this.listaAlbum.get(numberLastAlbum).getListaMusica().size() - 1;
+					currentMusic = this.listaAlbum.get(currentAlbum).getListaMusica().size() - 1;
 				} else {
-					numberLastMusic--;
+					currentMusic--;
 				}
 			}
 			
