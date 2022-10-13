@@ -26,26 +26,19 @@ public class PlayDoTeus extends Play {
 
 	@Override
 	public void next(int quantidade) {
+		this.numberLastMusic += quantidade;
 		if(this.listaAlbum.size() > 0) {
-			this.numberLastMusic += quantidade;
-			
-			while(true) {
-				if (numberLastMusic > this.listaAlbum.get(numberLastAlbum).getListaMusica().size() ) {
-					//Atualizando número do Album;
-					if (this.numberLastAlbum + 1 > this.listaAlbum.size()) {
-						this.numberLastAlbum = 0;
-					} else {
-						this.numberLastAlbum++;
-					}
-					
-					// Atualizando número da música
-					numberLastMusic = this.numberLastMusic -  this.listaAlbum.get(numberLastAlbum-1).getListaMusica().size();
+			while(numberLastMusic  >= this.listaAlbum.get(numberLastAlbum).getListaMusica().size()) {
+				
+				numberLastMusic -= this.listaAlbum.get(numberLastAlbum).getListaMusica().size();	
+				
+				if(numberLastAlbum + 1 >= this.listaAlbum.size() ) {
+					numberLastAlbum = 0;
 				} else {
-					break;
+					numberLastAlbum++;
 				}
 			}
-			System.out.println("Tocando a música " + 
-					this.listaAlbum.get(numberLastAlbum).getListaMusica().get(numberLastMusic).getNome());
+			this.start();
 		} else {
 			System.err.println("No music to play!");
 		}
@@ -53,7 +46,15 @@ public class PlayDoTeus extends Play {
 
 	@Override
 	public void back(int quantidade) {
-		// TODO Auto-generated method stub
+		this.numberLastMusic -= quantidade;
+		if(this.listaAlbum.size() > 0) {
+			while(true) {
+				break;
+			}
+			this.start();
+		} else {
+			System.err.println("No music to play!");
+		}
 		
 	}
 

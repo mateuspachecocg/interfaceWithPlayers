@@ -10,4 +10,12 @@ public class Navegador {
 //		tocador.pause();
 	
 	}
+	
+public void testeDoTocadorNext(IPlay tocador, int quantidade) {
+
+		tocador.next(quantidade);
+//		tocador.back(2);
+//		tocador.pause();
+	
+	}
 }

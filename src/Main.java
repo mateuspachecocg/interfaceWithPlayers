@@ -15,9 +15,14 @@ public class Main {
 
 		Musica m2 = new Musica("Samba do ano que vem tem mais");
 		m2.setDuracao(890);
+		
+		Musica m3 = new Musica("Aquarela Luz");
+		m3.setDuracao(490);
 
 		Album album = new Album(m1);
 		album.addMusica(m2);
+		album.addMusica(m3);
+		
 		album.setArtista("Tec prog");
 
 //		Play play = new Play();
@@ -46,7 +51,9 @@ public class Main {
 		FitaDoTeus.addAlbum(album);
 		
 		tocador.testeDoTocador(FitaDoTeus);
-		
+		tocador.testeDoTocadorNext(FitaDoTeus, 1);
+		tocador.testeDoTocadorNext(FitaDoTeus, 1);
+		tocador.testeDoTocadorNext(FitaDoTeus, 1);
 		
 		// for (Musica musicas : album.getListaMusica()) {
 		// System.out.println(musicas.getNome() + " - " + musicas.getDuracao()+ "s");
