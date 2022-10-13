@@ -43,6 +43,10 @@ public class Main {
 		PlayDoTeus FitaDoTeus = new PlayDoTeus();
 		tocador.testeDoTocador(FitaDoTeus);
 		
+		FitaDoTeus.addAlbum(album);
+		
+		tocador.testeDoTocador(FitaDoTeus);
+		
 		
 		// for (Musica musicas : album.getListaMusica()) {
 		// System.out.println(musicas.getNome() + " - " + musicas.getDuracao()+ "s");
