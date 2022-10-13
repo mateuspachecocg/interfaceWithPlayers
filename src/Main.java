@@ -55,6 +55,8 @@ public class Main {
 		tocador.testeDoTocadorNext(FitaDoTeus, 1);
 		tocador.testeDoTocadorNext(FitaDoTeus, 1);
 		
+		tocador.testeDoTocadorBack(FitaDoTeus, 2);
+		
 		// for (Musica musicas : album.getListaMusica()) {
 		// System.out.println(musicas.getNome() + " - " + musicas.getDuracao()+ "s");
 		// }

@@ -18,4 +18,12 @@ public void testeDoTocadorNext(IPlay tocador, int quantidade) {
 //		tocador.pause();
 	
 	}
+
+public void testeDoTocadorBack(IPlay tocador, int quantidade) {
+
+	
+    tocador.back(quantidade);
+//	tocador.pause();
+
+}
 }

@@ -46,11 +46,24 @@ public class PlayDoTeus extends Play {
 
 	@Override
 	public void back(int quantidade) {
-		this.numberLastMusic -= quantidade;
+		
 		if(this.listaAlbum.size() > 0) {
-			while(true) {
-				break;
+			
+			for(;quantidade > 0;quantidade--) {
+				if(numberLastMusic - 1 < 0) {
+					
+					if (numberLastAlbum == 0) {
+						numberLastAlbum = this.listaAlbum.size() - 1;
+					} else {
+						numberLastAlbum--;
+					}
+					
+					numberLastMusic = this.listaAlbum.get(numberLastAlbum).getListaMusica().size() - 1;
+				} else {
+					numberLastMusic--;
+				}
 			}
+			
 			this.start();
 		} else {
 			System.err.println("No music to play!");
