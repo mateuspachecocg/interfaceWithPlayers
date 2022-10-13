@@ -26,22 +26,46 @@ public class PlayDoTeus extends Play {
 
 	@Override
 	public void next(int quantidade) {
-		this.numberLastMusic += quantidade;
-		if(this.listaAlbum.size() > 0) {
-			while(numberLastMusic  >= this.listaAlbum.get(numberLastAlbum).getListaMusica().size()) {
-				
-				numberLastMusic -= this.listaAlbum.get(numberLastAlbum).getListaMusica().size();	
-				
-				if(numberLastAlbum + 1 >= this.listaAlbum.size() ) {
-					numberLastAlbum = 0;
+			if(this.listaAlbum.size() > 0) {
+			
+			for(;quantidade > 0;quantidade--) {
+				if(numberLastMusic + 1 >= this.listaAlbum.get(numberLastAlbum).getListaMusica().size()) {
+					
+					if (numberLastAlbum == 0) {
+						numberLastAlbum = this.listaAlbum.size() - 1;
+					} else {
+						numberLastAlbum--;
+					}
+					
+					numberLastAlbum = 0;;
 				} else {
-					numberLastAlbum++;
+					numberLastMusic++;
 				}
 			}
+			
 			this.start();
 		} else {
 			System.err.println("No music to play!");
 		}
+		
+		
+		
+//		this.numberLastMusic += quantidade;
+//		if(this.listaAlbum.size() > 0) {
+//			while(numberLastMusic  >= this.listaAlbum.get(numberLastAlbum).getListaMusica().size()) {
+//				
+//				numberLastMusic -= this.listaAlbum.get(numberLastAlbum).getListaMusica().size();	
+//				
+//				if(numberLastAlbum + 1 >= this.listaAlbum.size() ) {
+//					numberLastAlbum = 0;
+//				} else {
+//					numberLastAlbum++;
+//				}
+//			}
+//			this.start();
+//		} else {
+//			System.err.println("No music to play!");
+//		}
 	}
 
 	@Override
